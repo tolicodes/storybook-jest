@@ -1,0 +1,17 @@
+version: "3.4"
+services:
+  frontend-dev:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    stdin_open: true
+    command: yarn start
+  frontend:
+    build:
+      target: prod
+    ports:
+      - "80:80"
+    image: tolicodes/tolicodes.com
